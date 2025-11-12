@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../assets/css/components/cabecalho.css';
 import imagem from '../assets/img/catiorrinho.svg';
 
@@ -19,7 +20,10 @@ const Cabecalho = () => {
           <li><a href="#" className="menu-item menu-item--entrar">Entrar</a></li>
           <li><a href="#" className="menu-item">Produtos</a></li>
           <li><a href="/" className="menu-item">Blog</a></li>
-          <li><a href="/sobre" className="menu-item">Sobre</a></li>
+          <li>
+  <Link to="/sobre" className="menu-item">Sobre</Link>
+              <a href="/sobre" ></a>
+          </li>
         </ul>
       </nav>
       <div className="menu-cabecalho-background"></div>
