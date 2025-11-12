@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, Outlet } from 'react-router-dom';
+import { busca } from '../api';
 import '../assets/css/blog.css';
 import ListaCategorias from '../components/ListaCategorias';
 import ListaPost from '../components/ListaPost';
