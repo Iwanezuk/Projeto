@@ -7,6 +7,8 @@ import Pagina404 from './pages/404';
 import Cabecalho from './components/cabecalho';
 import Post from './pages/Post';
 import Categoria from './pages/Categoria';
+import SubCategoria from './pages/SubCategorias';
+import CategoriaPosts from './pages/CategoriaPosts';
 
 function App() {
   return(
