@@ -14,7 +14,8 @@ const ListaPost = ({ url }) => {
 
         <section className="posts container">
             {
-                posts.map((post) =>
+                posts.map((post) =>{
+                    console.log(post);
                     <Link className={`cartao-post cartao-post--${post.categoria}`} to={`/posts/${post.id}`} >
                         <article key={post.id}>
                             <h3 className="cartao-post__titulo">
@@ -25,7 +26,7 @@ const ListaPost = ({ url }) => {
                             </p>
                         </article>
                     </Link>
-                )
+                })
             }
         </section>
 
