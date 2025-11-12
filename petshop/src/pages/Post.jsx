@@ -1,7 +1,9 @@
 import {useState, useEffect } from 'react';
-import { busca } from '../api/api';
+import { useParams } from 'react-router-dom';
+import { busca } from '../api';
 
 const Post = () => { 
+  const { id } = useParams()  
   const[post, setPost] = useState({})
 
   useEffect(() => {
