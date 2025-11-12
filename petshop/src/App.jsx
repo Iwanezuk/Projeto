@@ -1,16 +1,20 @@
-// import './App.css'
-import Home from './pages/Home'
-// Importe o componente 'Home' pelo nome
-import Sobre from './pages/Sobre'
-import './assets/css/base/base.css'
+import './App.css';
+import Home from './pages/Home';
+import Sobre from './pages/Sobre';
+import './assets/css/base/base.css';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
-  return (
-    <>
-      <Home />
-      <Sobre />
-    </>
+  return(
+    <Router>
+      <Routes>
+        {/* Use element={Componente /} para renderizar */}
+        <Route path='/' element={<Home />} />
+        <Route path='/sobre' element={<Sobre />} />
+      </Routes>
+
+    </Router>
   )
 }
 
-export default App
+export default App;
