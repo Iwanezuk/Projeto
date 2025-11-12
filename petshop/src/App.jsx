@@ -6,6 +6,7 @@ import Sobre from './pages/Sobre';
 import Pagina404 from './pages/404';
 import Cabecalho from './components/cabecalho';
 import Post from './pages/Post';
+import Categoria from './pages/Categoria';
 
 function App() {
   return(
@@ -15,10 +16,10 @@ function App() {
         {/* Use element={Componente /} para renderizar */}
         <Route path='/' element={<Home />} />
         <Route path='/posts/:id' element={<Post />} />
+        <Route path='/categoria/:id' element={<Categoria />} />        
         <Route path='/sobre' element={<Sobre />} />
         <Route path='*' element={<Pagina404 />} />
       </Routes>
-
     </Router>
   )
 }
