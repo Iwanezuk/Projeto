@@ -1,5 +1,6 @@
 import { busca } from "../api.jsx";
 import { useState } from "react";
+import { Link } from 'react-router-dom'
 
 const ListaPost = ({ url }) => {
     const [posts, setPosts] = useState([])
