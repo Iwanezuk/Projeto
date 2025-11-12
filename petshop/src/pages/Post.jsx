@@ -1,14 +1,22 @@
 import {useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 import { busca } from '../api';
 
 const Post = () => { 
   const { id } = useParams()  
   const[post, setPost] = useState({})
 
+  const navegar = useNavigate();
+
   useEffect(() => {
+    // Busca o post usando o ID capturado
     busca(`/posts/${id}`, setPost)
-  }, [id])
+    .catch(() => {
+      // Se a busca falhar, navega par a rota de erro
+      // O 'useNavigate' que faz o redirecionamento
+      navegar('/erro404');
+    });
+  }, [id]); // Atualiza quando o 'id' na URL muda
 
   return(
     <main className="container flex flex--centro">
