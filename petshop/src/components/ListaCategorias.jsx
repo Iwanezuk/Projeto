@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { busca } from '../api.jsx';
 import '../assets/css/blog.css';
 
