@@ -15,11 +15,11 @@ const ListaCatAdmin = () => {
     const excluir = (CategoriaDel) => {
         api.delete(`categorias/${CategoriaDel.id}/`)
             .then(() => {
-            // Remove a categoria do estado local para atualizar a UI
-            const listaCategorias = categorias
-                .filter(categoria => categoria.id !== CategoriaDel.id);
-            setCategorias([...listaCategorias]);
-        });
+                // Remove a categoria do estado local para atualizar a UI
+                const listaCategorias = categorias
+                    .filter(categoria => categoria.id !== CategoriaDel.id);
+                setCategorias([...listaCategorias]);
+            });
     }
 
     return (
@@ -32,7 +32,7 @@ const ListaCatAdmin = () => {
                             <Link to="/admin/NovaCategoria">
                                 <Button
                                     variant="contained"
-                                    fullWidth
+
                                     sx={{ marginTop: 1 }}
                                 // usa o sistem de estilização Sx
                                 >
@@ -66,19 +66,21 @@ const ListaCatAdmin = () => {
                                             type="button"
                                             variant="contained"
                                             color="warning"
-                                            // Cor MUI para Alerta/Atenção
+                                        // Cor MUI para Alerta/Atenção
                                         >
                                             Editar
                                         </Button>
                                     </Link>
+                                </td>
+                                <td>
                                     {/* Botão EXCLUIR */}
                                     <Link
                                         to="/admin"
                                         style={{ textDecoration: 'none' }}
                                     >
                                         <Button
-                                           onClick={() => excluir(categoria)}
-                                           type="button"
+                                            onClick={() => excluir(categoria)}
+                                            type="button"
                                             variant="contained"
                                             color="error"
                                             // Cor MUI para Erro/Remoção
@@ -87,8 +89,22 @@ const ListaCatAdmin = () => {
                                             Excluir
                                         </Button>
                                     </Link>
-
-
+                                </td>
+                                <td>
+                                    {/* Botão SUBCATEGORIA */}
+                                    <Link
+                                        to={`/admin/categoria/${categoria.id}`}
+                                        style={{ textDecoration: 'none' }}
+                                    >
+                                        <Button
+                                            type="button"
+                                            variant="outlined"
+                                            color="primary"
+                                            sx={{ margin: "0 0.25rem" }}
+                                        >
+                                            SubCategoria
+                                        </Button>
+                                    </Link>
                                 </td>
                             </tr>
                         ))
