@@ -55,12 +55,27 @@ const ListaCatAdmin = () => {
                                             type="button"
                                             variant="contained"
                                             color="warning"
-                                            // Cor MUI para Alerta/Atenção
+                                        // Cor MUI para Alerta/Atenção
                                         >
                                             Editar
                                         </Button>
                                     </Link>
                                     {/* Botão EXCLUIR */}
+                                    <Link
+                                        to="/admin"
+                                        style={{ textDecoration: 'none' }}
+                                    >
+                                        <Button
+                                            type="button"
+                                            variant="contained"
+                                            color="error"
+                                            // Cor MUI para Erro/Remoção
+                                            sx={{ margin: "0 0.25rem" }}
+                                        >
+                                            Excluir
+                                        </Button>
+                                    </Link>
+
 
                                 </td>
                             </tr>
