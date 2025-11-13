@@ -11,6 +11,7 @@ import SubCategoria from './pages/SubCategorias';
 import CategoriaPosts from './pages/CategoriaPosts';
 import Admin from './pages/admin/Admin';
 import FormCategoria from './pages/admin/components/FormCategoria.jsx'
+import CatAdmin from './pages/admin/CatAdmin.jsx';
 
 function App() {
   return(
@@ -21,6 +22,7 @@ function App() {
         <Route path='/admin' element={<Admin />} />
         <Route path='/admin/NovaCategoria' element={<FormCategoria />} />
         <Route path='/admin/:id' element={<FormCategoria />} />
+        <Route path='/admin/categoria/:id' element={<CatAdmin />} />
         <Route path='/' element={<Home />} />
         <Route path='/posts/:id' element={<Post />} />
 
