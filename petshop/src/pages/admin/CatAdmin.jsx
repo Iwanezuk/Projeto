@@ -61,4 +61,4 @@ const CatAdmin = () => {
   )
 }
 
-export default Categoria;
+export default CatAdmin;
