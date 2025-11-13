@@ -11,6 +11,17 @@ const ListaCatAdmin = () => {
         busca(`/categorias`, setCategorias)
     }, [])
 
+    // Função para deletar a categoria
+    const excluir = (CategoriaDel) => {
+        api.delete(`categorias/${CategoriaDel.id}/`)
+            .then(() => {
+            // Remove a categoria do estado local para atualizar a UI
+            const listaCategorias = categorias
+                .filter(categoria => categoria.id !== CategoriaDel.id);
+            setCategorias([...listaCategorias]);
+        });
+    }
+
     return (
         <section className="container">
             <table className="tabela">
