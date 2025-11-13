@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, TextField } from "@mui/material";
-import { api, busca } from "../../../api/api.js";
+import { api, busca } from "../../../api.jsx";
 import { useParams, useNavigate } from "react-router-dom";
 
 const FormSubCategoria = () => {
@@ -36,7 +36,8 @@ const FormSubCategoria = () => {
         evento.preventDefault();
         if (id) {
             // Filtra subcategorias vazias antes de salvar
-            const subcategoriasFinais = [subCategoria1, subCategoria2].filter(sub => sub.trim() !== '');
+            const subcategoriasFinais = [subCategoria1, subCategoria2]
+                .filter(sub => sub.trim() !== '');
 
             api.put(`/categorias/${id}/`, {
                 id: nomeCategoria, // O doc passa o nome da categoria como ID
