@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { busca } from "../../../api";
+import { api, busca } from "../../../api";
 import { Link } from "react-router-dom";
 import "../components/tabela.css";
 import { Button } from "@mui/material";
@@ -77,7 +77,8 @@ const ListaCatAdmin = () => {
                                         style={{ textDecoration: 'none' }}
                                     >
                                         <Button
-                                            type="button"
+                                           onClick={() => excluir(categoria)}
+                                           type="button"
                                             variant="contained"
                                             color="error"
                                             // Cor MUI para Erro/Remoção
