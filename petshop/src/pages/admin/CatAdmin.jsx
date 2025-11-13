@@ -4,7 +4,6 @@ import { useParams, Link, Outlet } from 'react-router-dom';
 import { busca } from '../../api';
 import '../../assets/css/blog.css';
 import ListaCatAdmin from './components/ListaCatAdmin';
-import ListaPost from '../components/ListaPost';
 
 const CatAdmin = () => {
     // Captura o 'id' da categoria (ex: "bem-estar", "comportamento")
