@@ -9,6 +9,7 @@ import Post from './pages/Post';
 import Categoria from './pages/Categoria';
 import SubCategoria from './pages/SubCategorias';
 import CategoriaPosts from './pages/CategoriaPosts';
+import Admin from './pages/admin/Admin';
 
 function App() {
   return(
@@ -16,6 +17,7 @@ function App() {
       <Cabecalho />
       <Routes>
         {/* Use element={Componente /} para renderizar */}
+        <Route path='/admin' element={<Admin />} />
         <Route path='/' element={<Home />} />
         <Route path='/posts/:id' element={<Post />} />
 
