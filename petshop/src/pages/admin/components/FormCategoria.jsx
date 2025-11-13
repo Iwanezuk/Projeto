@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../../api";
 
 const FormCategoria = () => {
-        const navigate = useNavigate();
+    const navigate = useNavigate();
     const [nomeCategoria, setNomeCategoria] = useState('');
 
     const CadCategoria = (evento) => {
@@ -28,6 +28,8 @@ const FormCategoria = () => {
                 <br />
                 <form onSubmit={CadCategoria} >
                     <TextField
+                        value={nomeCategoria}
+                        onChange={evento => setNomeCategoria(evento.target.value)}
                         label="Categoria"
                         variant="filled"
                         fullWidth
