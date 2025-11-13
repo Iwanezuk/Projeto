@@ -1,7 +1,7 @@
 // petshop/src/paginas/admin/components/ListaPostAdmin.jsx
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { api, busca } from "../../../api/api";
+import { api, busca } from "../../../api";
 import { Link } from "react-router-dom";
 
 const ListaPostAdmin = () => {
