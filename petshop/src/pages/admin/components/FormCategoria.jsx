@@ -1,11 +1,20 @@
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../../api";
 
 const FormCategoria = () => {
     const navigate = useNavigate();
+    const { id } = useParams; // Captura o ID da URL
     const [nomeCategoria, setNomeCategoria] = useState('');
+
+    // Efeito para buscar dados se estiver em modo de edição
+    useEffect(() => {
+        if (id) {
+            api.get(`categorias/${id}/`)
+                .then(resposta => setNomeCategoria(resposta.data.nome));
+        }
+    }, [id]); // Re-executa se o ID mudar
 
     const CadCategoria = (evento) => {
         evento.preventDefault();
@@ -21,10 +30,13 @@ const FormCategoria = () => {
                 navigate('/admin'); // ATUALIZAÇÃO: Navega para /admin
             });
     }
-    return ( 
+    return (
         <main className="container flex flex--centro">
             <article className="cartao post">
-                <h2 className="titulo-pagina">Cadastro de Categorias</h2>
+                <h2 className="titulo-pagina">
+                    {/* título dinâmico */}
+                    {id ? 'Editar Categoria' : 'Cadastro de Categorias'}
+                </h2>
                 <br />
                 <form onSubmit={CadCategoria} >
                     <TextField
@@ -47,7 +59,7 @@ const FormCategoria = () => {
                 </form>
             </article>
         </main>
-     );
+    );
 }
- 
+
 export default FormCategoria;
