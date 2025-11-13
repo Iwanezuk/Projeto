@@ -1,11 +1,11 @@
 import { Button, TextField } from "@mui/material";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../../api";
 
 const FormCategoria = () => {
     const navigate = useNavigate();
-    const { id } = useParams; // Captura o ID da URL
+    const { id } = useParams(); // Captura o ID da URL
     const [nomeCategoria, setNomeCategoria] = useState('');
 
     // Efeito para buscar dados se estiver em modo de edição
@@ -15,6 +15,7 @@ const FormCategoria = () => {
                 .then(resposta => setNomeCategoria(resposta.data.nome));
         }
     }, [id]); // Re-executa se o ID mudar
+
 
     const CadCategoria = (evento) => {
         evento.preventDefault();
@@ -54,7 +55,7 @@ const FormCategoria = () => {
                         sx={{ marginTop: 1 }}
                         fullWidth
                     >
-                        Cadastrar
+                        {id ? 'Salvar' : 'Cadastrar'}
                     </Button>
                 </form>
             </article>
