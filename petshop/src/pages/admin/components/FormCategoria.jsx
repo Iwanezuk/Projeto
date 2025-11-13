@@ -29,7 +29,7 @@ const FormCategoria = () => {
                 subcategorias: []
             })
                 .then(() => {
-                    alert("Sucesso na atualização!");
+                    alert("Sucesso na atualização!!!");
                     navigate('/admin'); // ATUALIZAÇÃO: Navega para /admin
                 });
 
