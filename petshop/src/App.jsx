@@ -14,6 +14,7 @@ import FormCategoria from './pages/admin/components/FormCategoria';
 import CatAdmin from './pages/admin/CatAdmin';
 import FormSubCategoria from './pages/admin/components/FormSubCategoria';
 import AdminLayout from './pages/admin/AdminLayout';
+import PostAdmin from './pages/PostAdmin';
  
  
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path=':id' element={<FormCategoria />} />
           <Route path='categoria/:id' element={<CatAdmin />} />
           <Route path='sub/:id' element={<FormSubCategoria />} />
+          <Route path="posts" element={<PostAdmin />} />
         </Route>
  
         {/*
