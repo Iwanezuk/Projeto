@@ -10,6 +10,7 @@ import Categoria from './pages/Categoria';
 import SubCategoria from './pages/SubCategorias';
 import CategoriaPosts from './pages/CategoriaPosts';
 import Admin from './pages/admin/Admin';
+import FormCategoria from './pages/admin/components/FormCategoria.jsx'
 
 function App() {
   return(
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         {/* Use element={Componente /} para renderizar */}
         <Route path='/admin' element={<Admin />} />
+        <Route path='/admin/NovaCategoria' element={<FormCategoria />} />
         <Route path='/' element={<Home />} />
         <Route path='/posts/:id' element={<Post />} />
 
