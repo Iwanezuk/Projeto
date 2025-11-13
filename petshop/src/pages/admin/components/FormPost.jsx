@@ -36,8 +36,8 @@ const FormPost = () => {
     }, [id]); // Depende do ID 
 
     // Função de Submit (PUT ou POST)
-    const CadPost = (evento) => { 
-        evento.preventDefault(); 
+    const CadPost = (evento) => {
+        evento.preventDefault();
 
         const postData = {
             title: title,
@@ -50,15 +50,15 @@ const FormPost = () => {
             // Modo Edição (PUT) 
             api.put(`/posts/${id}`, postData)
                 .then(() => {
-                    alert("Sucesso na atualização!"); 
-                    navigate("/admin/posts"); 
+                    alert("Sucesso na atualização!");
+                    navigate("/admin/posts");
                 });
         } else {
             // Modo Cadastro (POST) 
             api.post(`/posts`, postData)
                 .then(() => {
-                    alert("Cadastro realizado com Sucesso!"); 
-                    navigate("/admin/posts/"); 
+                    alert("Cadastro realizado com Sucesso!");
+                    navigate("/admin/posts/");
                 });
         }
     };
