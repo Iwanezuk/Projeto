@@ -1,59 +1,62 @@
 import './assets/css/base/base.css';
+import './assets/css/post.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Páginas Públicas
-import Home from './paginas/Home';
-import Sobre from './paginas/Sobre';
-import Pagina404 from './paginas/Pagina404';
-import Cabecalho from './components/Cabecalho';
-import Post from './paginas/Post';
-import Categoria from './paginas/Categoria';
-
-// Páginas Admin (Layout e Componentes)
-import AdminLayout from './paginas/admin/AdminLayout'; // (O layout que criamos)
-import Admin from './paginas/admin/Admin';
-import FormCategoria from './paginas/admin/components/FormCategoria';
-import CatAdmin from './paginas/admin/CatAdmin';
-import FormSubCategoria from './paginas/admin/components/FormSubCategoria';
-import PostAdmin from './paginas/admin/PostAdmin';
-import FormPost from './paginas/admin/components/FormPost';
-
+import Home from './pages/Home';
+import Sobre from './pages/Sobre';
+import Pagina404 from './pages/Pagina404';
+import Cabecalho from './components/cabecalho';
+import Post from './pages/Post';
+import Categoria from './pages/Categoria';
+import CategoriaPosts from './pages/CategoriaPosts';
+import SubCategoria from './pages/SubCategorias';
+import Admin from './pages/admin/Admin';
+import FormCategoria from './pages/admin/components/FormCategoria';
+import CatAdmin from './pages/admin/CatAdmin';
+import FormSubCategoria from './pages/admin/components/FormSubCategoria';
+import AdminLayout from './pages/admin/AdminLayout';
+ 
+ 
 function App() {
-    return (
-        <Router>
-            <Cabecalho />
-            <Routes>
-                {/* Rotas Públicas */}
-                <Route path='/' element={<Home />} />
-                <Route path='/sobre' element={<Sobre />} />
-                <Route path='/categoria/:id/*' element={<Categoria />} />
-                {/* (Usando o aninhamento) */}
-                <Route path='/posts/:id' element={<Post />} />
-
-                {/* Rotas Administrativas Aninhadas */}
-                <Route path="/admin" element={<AdminLayout />}>
-                    {/* A rota "index" é o que carrega em /admin */}
-                    <Route index element={<Admin />} />
-
-                    {/* Rotas de Categoria */}
-                    <Route path="NovaCategoria" element={<FormCategoria />} />
-                    <Route path="categoria/:id" element={<FormCategoria />} />
-
-                    {/* Rotas de Subcategoria */}
-                    <Route path="categoria/sub/:id" element={<CatAdmin />} />
-                    <Route path="categoria/sub/form/:id" element={<FormSubCategoria />} />
-
-                    {/* (Rotas de Post serão adicionadas aqui) */}
-                    <Route path="posts" element={<PostAdmin />} />
-                    <Route path="posts/NovoPost" element={<FormPost />} />
-                    <Route path="posts/:id" element={<FormPost />} />
-                </Route>
-
-                {/* Rota 404 */}
-                <Route path='*' element={<Pagina404 />} />
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Cabecalho />
+      <Routes>
+        {/* Use element={Componente /} para renderizar */}
+        <Route path='/' element={<Home />} />
+        <Route path='/posts/:id' element={<Post />} />
+        <Route path='/sobre' element={<Sobre />} />
+       
+        <Route path='/admin/' element={<AdminLayout />}>
+          <Route index element={<Admin />} />
+          <Route path='novacategoria' element={<FormCategoria />} />
+          <Route path=':id' element={<FormCategoria />} />
+          <Route path='categoria/:id' element={<CatAdmin />} />
+          <Route path='sub/:id' element={<FormSubCategoria />} />
+        </Route>
+ 
+        {/*
+          Esta é a rota pai. Ela renderiza o <Categoria />
+        */}
+        <Route path='/categoria/:id' element={<Categoria />}>
+ 
+          {/* Esta é a rota "filho" de índice (index).
+              Ela é renderizada dentro do <Outlet> quando a URL
+              é exatamente /categoria/:id
+            */}
+          <Route index element={<CategoriaPosts />} />
+ 
+          {/* Esta é a rota "filho" da subcategoria.
+              Ela é renderizada dentro do <Outlet> quando a URL
+              é /categoria/:id/:subcategoria
+            */}
+          <Route path=':subcategoria' element={<SubCategoria />} />
+ 
+        </Route>
+ 
+        <Route path='*' element={<Pagina404 />} />
+      </Routes>
+    </Router>
+  )
 }
-
-export default App;
+ 
+export default App
