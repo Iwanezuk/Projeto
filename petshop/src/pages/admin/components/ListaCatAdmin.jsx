@@ -59,14 +59,14 @@ const ListaCatAdmin = () => {
                                 >
                                     {/* Botão EDITAR */}
                                     <Link
-                                        to="/admin"
+                                        to={`/admin/${categoria.id}`}
                                         style={{ textDecoration: 'none' }}
                                     >
                                         <Button
                                             type="button"
                                             variant="contained"
                                             color="warning"
-                                        // Cor MUI para Alerta/Atenção
+                                            // Cor MUI para Alerta/Atenção
                                         >
                                             Editar
                                         </Button>
